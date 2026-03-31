@@ -1,10 +1,10 @@
-from cryptography.fernet import fernet
+from cryptography.fernet import Fernet
 KEY_FILE = "key.key"
 
 #--- Key Generator ---
 def generate_key():
 	key = Fernet.generate_key()
-	with opne(KEY_FILE, "wb") as f:
+	with open(KEY_FILE, "wb") as f:
 		f.write(key)
 
 #--- Loads Key ---

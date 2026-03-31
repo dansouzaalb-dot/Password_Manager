@@ -46,8 +46,7 @@ def main():
 		menu()
 		choice = input("Choose: ")
 
-		if choice == "1":
-			add_password(data)
+		if choice == "1"zzz	add_password(data)
 		elif choice == "2":
 			view_passwords(data)
 		elif choice == "3":
