@@ -11,6 +11,6 @@ def load_data():
 		return[]
 #--- Saves data ---
 def save_data(data):
-		with open(FILE, "w") as f:
-			json.dump(data, f, indent=4)
+	with open(FILE, "w") as f:
+		json.dump(data, f, indent=4)
 
