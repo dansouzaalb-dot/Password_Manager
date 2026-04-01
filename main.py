@@ -22,6 +22,10 @@ def add_password(data):
 
 #--- View Passwords ---
 def view_passwords(data):
+	if not data:
+		print(red("No data"))
+		return
+	
 	for item in data:
 		print("\nSite:", item["site"])
 		print("User:", item["username"])
@@ -46,13 +50,32 @@ def search_site(data):
 	if not found:
 		print(red("Site not found"))
 
+#--- Delete Datas ---
+def delete(data):
+	if not data:
+		print(red("No data to delete."))
+		return
+
+	for i, item in enumerate(data, 1):
+		print(f"{i} - {item['site']}")
+
+	try:
+		index = int(input("Choose a index to delete: "))	
+		removed = data.pop(index -1)
+		save_data(data)
+		print(green(f"Removed: {removed['site']}"))
+	except (ValueError, IndexError):
+		print(red("Invalid selection"))
+		return
+
 #--- Menu ---
 def menu():
 	print("\n---PASSWORD MANAGER ---")
 	print("1 Add password")
 	print("2 View passwords")
 	print("3 Search by site")
-	print("4 Quit")
+	print("4 Delete datas")
+	print("5 Quit")
 
 #--- Main ---
 def main():
@@ -75,6 +98,8 @@ def main():
 		elif choice == "3":
 			search_site(data)
 		elif choice == "4":
+			delete(data)
+		elif choice == "5":
 			break
 		else:
 			print(red("INVALID"))
