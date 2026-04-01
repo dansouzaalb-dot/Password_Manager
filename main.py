@@ -1,12 +1,13 @@
 from crypto import generate_key, encrypt, decrypt
 from storage import load_data, save_data
 from color import red, green
+from getpass import getpass
 
 #--- Adds passwords ---
 def add_password(data):
 	site = input("Site: ")
 	username = input("Username: ")
-	password = input("Password: ")
+	password = getpass("Password: ")
 
 	encrypted = encrypt(password)
 
@@ -49,7 +50,7 @@ def search_site(data):
 def menu():
 	print("\n---PASSWORD MANAGER ---")
 	print("1 Add password")
-	print("2 View passswords")
+	print("2 View passwords")
 	print("3 Search by site")
 	print("4 Quit")
 
