@@ -77,9 +77,27 @@ def menu():
 	print("4 Delete datas")
 	print("5 Quit")
 
+#--- Master Password---
+def master_password():
+	keyword = getpass("PASSWORD: ")
+	
+	if keyword == "1234":
+		return True
+	else:
+		print(red("INVALID PASSWORD!\nACCESS DENIED!"))
+		return False
+
 #--- Main ---
 def main():
+	#--- System Login ---
+	for _ in range(3):
+		if master_password():
+			break
+	else:
+		print(red("Too many failed attempts."))
+		return # <- Stops program immediatly
 
+	#--- Continue app normaly ---
 	try:
 		open("key.key")
 	except:
